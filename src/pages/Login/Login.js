@@ -4,12 +4,15 @@ import "./Login.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { useToaster } from "react-hot-toast";
 
 const Login = () => {
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
   const {signInUser} = useContext(AuthContext);
+  const [loginUserEmail, setLoginUserEmail] =useState('');
+  // const [token] = useToaster(loginUserEmail);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,6 +27,7 @@ const Login = () => {
     .then(res => {
       const user = res.user;
       // navigate('/');
+      setLoginUserEmail(data.email);
       navigate(from, { replace: true });
       reset();
     })

@@ -4,77 +4,42 @@ import '../Dashbord.css'
 
 const Admin = () => {
 
-    const {user} =  useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
         <>
             <div className="tab_info">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="panel panel-primary">
-                           
-                            <div className="panel-body">
-                                <ul className="list-group">
-                                    <li className="list-group-item">
-                                        <div className="checkbox">
-                                            <input type="checkbox" id="checkbox" className="allCheck" />
-                                            <label for="checkbox">
-                                                List group item heading
-                                            </label>
-                                        </div>
-                                        <div className="pull-right action-buttons">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <div className="checkbox">
-                                            <input type="checkbox" id="checkbox2" className="allCheck" />
-                                            <label for="checkbox2">
-                                                List group item heading 1
-                                            </label>
-                                        </div>
-                                        <div className="pull-right action-buttons">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <div className="checkbox">
-                                            <input type="checkbox" id="checkbox3" className="allCheck" />
-                                            <label for="checkbox3">
-                                                List group item heading 2
-                                            </label>
-                                        </div>
-                                        <div className="pull-right action-buttons">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <div className="checkbox">
-                                            <input type="checkbox" id="checkbox4" className="allCheck" />
-                                            <label for="checkbox4">
-                                                List group item heading 3
-                                            </label>
-                                        </div>
-                                        <div className="pull-right action-buttons">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <div className="checkbox">
-                                            <input type="checkbox" id="checkbox5" className="allCheck" />
-                                            <label for="checkbox5">
-                                                List group item heading 4
-                                            </label>
-                                        </div>
-                                        <div className="pull-right action-buttons">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <table class="table table-striped custab">
+                    <thead>
+                        {/* <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> */}
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Parent ID</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    {/* <tr>
+                        <td>1</td>
+                        <td>News</td>
+                        <td>News Cate</td>
+                        <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Products</td>
+                        <td>Main Products</td>
+                        <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Blogs</td>
+                        <td>Parent Blogs</td>
+                        <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                    </tr> */}
+                </table>
+                {/* {
+                    users.map((user, i)=><tr key={user._id}></tr>)
+                } */}
             </div>
         </>
     );
