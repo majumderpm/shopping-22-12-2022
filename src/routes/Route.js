@@ -8,11 +8,12 @@ import CheckOut from "../pages/CheckOut/CheckOut";
 import Dashbord from "../pages/Dashbord/Dashbord";
 import Error from "../pages/error/Error";
 import Home from "../pages/Home/Home";
-// import BannerData from "../pages/Home/BannerData";
+import AllUsers from "../pages/Dashbord/AllUsers";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Productdetails from "../ProductsDetails/Productdetails";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import AdminRoute from "../routes/AdminRoute/AdminRoute";
 
 
 
@@ -65,7 +66,12 @@ const router = createBrowserRouter([
            {
             path:  '/dashbord',
             element: <Dashbord></Dashbord>,
-           }
+           },
+           {
+            path: '/dashbord/allusers',
+            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        }
+        
         ]
     }
 ])

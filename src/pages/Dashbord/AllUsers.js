@@ -1,19 +1,20 @@
-import { useQuery } from '@tanstack/react-query';
+// import { useQuery } from '@tanstack/react-query';
+import { useQueries } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
 
 const AllUsers = () => {
-    const {data: users = [], refetch} = useQuery({
+    const {data: users = [], refetch} = useQueries({
         queryKey: ['users'],
         queryFn: async() =>{
-            const res = await fetch('https://doctors-portal-server-rust.vercel.app/users');
+            const res = await fetch('https://resale-backend.vercel.app/users');
             const data = await res.json();
             return data;
         }
     });
 
     const handleMakeAdmin = id => {
-        fetch(`https://doctors-portal-server-rust.vercel.app/users/admin/${id}`, {
+        fetch(`https://resale-backend.vercel.app/users/admin/${id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
