@@ -25,6 +25,9 @@ const Header = ({props}) => {
         <li className="nav-item">
             <Link className="nav-link" to="/blog">Blog</Link>
         </li>
+        <li className="nav-item">
+            <Link className="nav-link" to="/dashbord">Dashbord</Link>
+        </li>
 
     </React.Fragment>
 
@@ -64,7 +67,7 @@ const Header = ({props}) => {
                                     </button>
                                 </form>
                             </div>
-                            <div className="col-lg-3 col-md-2 login_shop">
+                            <div className="col-lg-3 col-md-3 login_shop">
                                 {
                                     user?.email ?
                                         <>  

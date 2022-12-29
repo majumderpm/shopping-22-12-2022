@@ -8,7 +8,7 @@ const ProtectedRoute = ({children}) => {
     let location = useLocation();
 
     if(loading){
-        return <h1 classNameName='text-5xl'>loading...</h1>
+        return <h1 className='text-5xl'>loading...</h1>
     }
 
     if(user){

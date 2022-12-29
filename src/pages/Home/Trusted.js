@@ -10,7 +10,7 @@ const Trusted = () => {
             <div className='trusted_card'>
                 <div className='container-fluid'>
                     <div className='row'>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
                             <div className="card mb-3 card_box">
                                 <div className="row g-0">
                                     <div className="col-md-4 card_img">
@@ -25,7 +25,7 @@ const Trusted = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
                             <div className="card mb-3 card_box">
                                 <div className="row g-0">
                                     <div className="col-md-4 card_img">
@@ -40,7 +40,7 @@ const Trusted = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
                             <div className="card mb-3 card_box">
                                 <div className="row g-0">
                                     <div className="col-md-4 card_img">
@@ -55,7 +55,7 @@ const Trusted = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                        <div className='col-lg-3 col-md-6 col-sm-6'>
                             <div className="card mb-3 card_box">
                                 <div className="row g-0">
                                     <div className="col-md-4 card_img">

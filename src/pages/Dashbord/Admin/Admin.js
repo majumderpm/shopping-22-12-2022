@@ -4,7 +4,7 @@ import '../Dashbord.css'
 
 const Admin = () => {
 
-    const { user } = useContext(AuthContext)
+    const { users } = useContext(AuthContext)
     return (
         <>
             <div className="tab_info">

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-import Admin from './Admin/Admin';
+// import Admin from './Admin/Admin';
 // import DeshContent from './DeshContent';
 // import Sonnet from '../../components/Sonnet';
 
@@ -26,7 +26,7 @@ const Dashbord = () => {
                             </Nav>
                         </Col>
                       
-                        <Col sm={9}>
+                        {/* <Col sm={9}>
                         <div className='tab_content'>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
@@ -37,7 +37,7 @@ const Dashbord = () => {
                                 </Tab.Pane>
                             </Tab.Content>
                             </div>
-                        </Col>
+                        </Col> */}
                         
                     </Row>
                 </Tab.Container>
