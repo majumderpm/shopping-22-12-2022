@@ -14,10 +14,17 @@ import Register from "../pages/Register/Register";
 import Productdetails from "../ProductsDetails/Productdetails";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import AdminRoute from "../routes/AdminRoute/AdminRoute";
+import AllBuyers from "../pages/Dashbord/buyers/AllBuyers";
+import AllSellers from "../pages/Dashbord/Sellers/AllSellers";
+import MyBuyers from "../pages/Dashbord/MyBuyers/MyBuyers";
+import AddProduct from "../pages/Dashbord/Sellers/AddProduct/AddProduct";
+import MyOrders from "../pages/Dashbord/MyOrders/MyOrders";
+import BuyersRoute from "./BuyersRoute/BuyersRoute";
 
 
 
 const router = createBrowserRouter([
+    
     {
         path:'/',
         element: <Main></Main>,
@@ -61,16 +68,36 @@ const router = createBrowserRouter([
     {
         path: '/dashbord',
         // element:  <ProtectedRoute><DashbordLayout></DashbordLayout></ProtectedRoute>,
-        element:  <ProtectedRoute><DashbordLayout></DashbordLayout></ProtectedRoute>,
+        element:  <DashbordLayout></DashbordLayout>,
         children: [
-           {
-            path:  '/dashbord',
-            element: <Dashbord></Dashbord>,
-           },
+        //    {
+        //     path:  '/dashbord',
+        //     element: <Dashbord></Dashbord>,
+        //    },
            {
             path: '/dashbord/allusers',
-            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-        }
+            element: <AllUsers></AllUsers>
+           },
+           {
+            path: '/dashbord/allbuyers',
+            element: <AllBuyers></AllBuyers>
+           },
+           {
+            path: '/dashbord/allsellers',
+            element: <AllSellers></AllSellers>
+           },
+           {
+            path: '/dashbord',
+            element: <MyBuyers></MyBuyers>
+           },
+           {
+            path: '/dashbord/addProduct',
+            element: <AddProduct></AddProduct>
+           },
+           {
+            path: '/dashbord/myorders',
+            element: <BuyersRoute><MyOrders></MyOrders></BuyersRoute>
+           },
         
         ]
     }

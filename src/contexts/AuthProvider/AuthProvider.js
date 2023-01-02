@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [userCoustom, setUserCoustom] = useState(null);
 
 
     useEffect(() => {
@@ -25,6 +26,28 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     }, []);
+
+ 
+    const handelMyOreder = id => {
+        const token = localStorage.getItem('accessToken')
+
+        fetch(`https://resale-backend.vercel.app/verifyuser`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `bearer ${token}`,
+          },
+        })
+          .then(res => res.json())
+          .then(data => console.log(data))
+          .catch(error => console.log(error))
+      }
+    //   console.log(localStorage.getItem('accessToken'));
+
+      useEffect(() => {
+        handelMyOreder()
+      }, [])
+
 
 
     const createUser = (email, password) => {
@@ -45,7 +68,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    const authInfo = { user, loading, createUser, signInUser, signOutUser, setLoading }
+    const authInfo = { user, loading, createUser, signInUser, signOutUser, setLoading, userCoustom, setUserCoustom }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

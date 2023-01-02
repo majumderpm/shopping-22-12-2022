@@ -10,15 +10,15 @@ const Login = () => {
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-  const {signInUser} = useContext(AuthContext);
-  const [loginUserEmail, setLoginUserEmail] =useState('');
+  const {signInUser, setUserCoustom} = useContext(AuthContext);
+  const [loginUserEmail, setLoginUserEmail] = useState('');
   // const [token] = useToaster(loginUserEmail);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
-
+ 
   const handleLogin = data => {
     const email = data.email;
     const password = data.password;
@@ -27,8 +27,29 @@ const Login = () => {
     .then(res => {
       const user = res.user;
       // navigate('/');
-      setLoginUserEmail(data.email);
-      navigate(from, { replace: true });
+
+      fetch('https://resale-backend.vercel.app/jwt', {
+        method: 'POST',
+        body: JSON.stringify({
+          email, 
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUserCoustom(data.user);
+          // console.log(data.user);
+            localStorage.setItem("accessToken",data.accessToken)
+            // console.log(data.accessToken);
+        })
+    // .catch(err => console.error(err));
+      setLoginUserEmail(email);
+      // navigate(from, { replace: true });
+
+
+      
       reset();
     })
     .catch(err => console.error(err));

@@ -6,7 +6,7 @@ import useAdmin from '../../hooks/useAdmin';
 // import Loading from '../../Pages/Shared/Loading/Loading';
 import Loading from '../../shered/Loading/Loading'
 
-const AdminRoute = ({ children }) => {
+const SellersRoute = ({ children }) => {
     const { user, userCoustom, loading } = useContext(AuthContext);
     console.log(userCoustom);
     // const [isAdmin, isAdminLoading] = useAdmin(user?.email);
@@ -16,11 +16,11 @@ const AdminRoute = ({ children }) => {
         return <Loading></Loading>
     }
 
-    if (user && userCoustom?.role === 'admin') {
+    if (user && userCoustom?.role === 'seller') {
         return children;
     }
 
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default AdminRoute;
+export default SellersRoute;

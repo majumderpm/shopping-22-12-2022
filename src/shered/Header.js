@@ -1,14 +1,72 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBeer } from 'react-icons/fa';
 import phone from '../../src/assets/icon/phone2.png'
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { Button } from 'react-bootstrap';
+import Cart from '../pages/CheckOut/Cart';
 
-const Header = ({props}) => {
+const Header = ({ props }) => {
 
     const { user, signOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
+
+
+    // const [cartsVisibilty, setCartVisible] =
+	// 	useState(false);
+	// const [productsInCart, setProducts] =
+	// 	useState(
+	// 		JSON.parse(
+	// 			localStorage.getItem(
+	// 				"shopping-cart"
+	// 			)
+	// 		) || []
+	// 	);
+	// useEffect(() => {
+	// 	localStorage.setItem(
+	// 		"shopping-cart",
+	// 		JSON.stringify(productsInCart)
+	// 	);
+	// }, [productsInCart]);
+	// const addProductToCart = (product) => {
+	// 	const newProduct = {...product, count: 1,
+	// 	};
+	// 	setProducts([...productsInCart, newProduct,]);
+	// };
+
+
+	// const onQuantityChange = (
+	// 	productId,
+	// 	count
+	// ) => {
+	// 	setProducts((oldState) => {
+	// 		const productsIndex =
+	// 			oldState.findIndex(
+	// 				(item) =>
+	// 					item.id === productId
+	// 			);
+	// 		if (productsIndex !== -1) {
+	// 			oldState[productsIndex].count =
+	// 				count;
+	// 		}
+	// 		return [...oldState];
+	// 	});
+	// }
+
+	// const onProductRemove = (product) => {
+	// 	setProducts((oldState) => {
+	// 		const productsIndex =
+	// 			oldState.findIndex(
+	// 				(item) =>
+	// 					item.id === product.id
+	// 			);
+	// 		if (productsIndex !== -1) {
+	// 			oldState.splice(productsIndex, 1);
+	// 		}
+	// 		return [...oldState];
+	// 	});
+
+    // };
 
     const menu = <React.Fragment>
 
@@ -48,6 +106,18 @@ const Header = ({props}) => {
 
             <header className="header-wrapper">
 
+                <Cart
+                    // visibilty={cartsVisibilty}
+                    // products={productsInCart}
+                    // onClose={() =>
+                    //     setCartVisible(false)
+                    // }
+                    // onQuantityChange={
+                    //     onQuantityChange
+                    // }
+                    // onProductRemove={onProductRemove}
+                />
+
                 <div className="header-middle">
                     <div className="container-fluid">
                         <div className="row ">
@@ -70,7 +140,7 @@ const Header = ({props}) => {
                             <div className="col-lg-3 col-md-3 login_shop">
                                 {
                                     user?.email ?
-                                        <>  
+                                        <>
                                             {/* <Link to="#" className="header-action-account" onClick={handleSignoutUser}>Logout</Link > */}
                                             {/* <Button variant="link" className="btn btn-ghost" onClick={handleSignoutUser}>Logout</Button> */}
                                             <Button variant="outline-dark" className='header-btn' onClick={handleSignoutUser}>Logout</Button>
@@ -84,11 +154,14 @@ const Header = ({props}) => {
                                 <Link className="header-action-wishlist" to="shop-wishlist.html">
                                     <i className="fa-regular fa-heart"></i>
                                 </Link >
-                                <button onClick={() => props.handleShow(false)}  className="header-action-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithCartSidebar" aria-controls="offcanvasWithCartSidebar">
-                                <i className="fa-solid fa-cart-shopping"></i>
-                                <span className="cart-count">0</span>
-                            </button>
-                            {/* <sup> {props.count} </sup> */}
+                                <button onClick={() => props.handleShow(true)} 
+                                    >
+                                    <i className="fa-solid fa-cart-shopping"></i>
+                                   
+
+                                    <span className="cart-count"></span>
+                                </button>
+                                {/* <sup> {props.count} </sup> */}
 
                             </div>
                         </div>

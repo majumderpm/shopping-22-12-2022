@@ -22,6 +22,7 @@ const Productdetails = () => {
 
 
   const [item, setItem] = useState([]);
+  console.log(item);
 
   //    
   // ===================== ****** 1st stape ****

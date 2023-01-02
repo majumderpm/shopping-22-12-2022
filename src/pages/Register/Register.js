@@ -22,7 +22,17 @@ const Register = () => {
         const user = res.user;
         console.log(user);
         toast.success('Registration done successfully');
-        reset();
+        fetch('https://resale-backend.vercel.app/users', {
+          method: 'POST',
+          body: JSON.stringify({
+            email, role:accountType, name
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json));
       })
       .catch(err => console.error(err));
   }

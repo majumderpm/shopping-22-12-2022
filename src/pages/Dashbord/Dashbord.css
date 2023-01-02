@@ -53,3 +53,17 @@
 input.allCheck {
     margin-right: 15px;
 }
+.drawer {
+    width: 100%;
+    padding:  40px;
+}
+.add_btn{
+    width: 100% !important;
+}
+.nav-item .all_tab{
+   
+    color: #000;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #f5f5f5 !important;
+}

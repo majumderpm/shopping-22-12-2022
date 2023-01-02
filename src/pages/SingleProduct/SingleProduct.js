@@ -10,9 +10,33 @@ const SingleProduct = ({ allproduct }) => {
 
   const [show, setShow] = useState(false);
   const { _id, image, title, price, status, description, condition, location } = allproduct;
-
+console.log(allproduct);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  
+  const handelCartClick = id => {
+    const token = localStorage.getItem('accessToken')
+    fetch(`https://resale-backend.vercel.app/orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `bearer ${token}`,
+      },
+      body: JSON.stringify({image, title, price, product:id}) 
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
+  }
+  console.log(localStorage.getItem('accessToken'));
+
+    // console.log("click sucessfull");
+  
+  // const ids = useParams()
+  // console.log(ids);
+  // console.log(allproduct)
+
   return (
     <div className="col-sm-6 col-lg-6 col-xl-4 mb-6">
       <div className="product-item">
@@ -22,6 +46,7 @@ const SingleProduct = ({ allproduct }) => {
           {/* </Link> */}
         </div>
         <SingleModalProduct
+        allproduct={allproduct}
         show={show} 
         handleClose={handleClose}
         id={_id}
@@ -68,6 +93,8 @@ const SingleProduct = ({ allproduct }) => {
             <i className="fa fa-star"></i>
             <i className="fa fa-star"></i>
           </div>
+          <button onClick={() => handelCartClick(_id)}   className="product-detail-cart-btn" type="button">
+            Book now </button> 
         </div>
       </div>
     </div>
